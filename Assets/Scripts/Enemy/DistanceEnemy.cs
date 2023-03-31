@@ -71,14 +71,6 @@ public class DistanceEnemy : MonoBehaviour
         return hit.collider != null;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
-    }
-
-
     private void Drop()
     {
         Vector3 spawnPosition = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.45f, gameObject.transform.position.z);

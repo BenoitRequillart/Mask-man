@@ -9,7 +9,8 @@ public class Projectile : MonoBehaviour
     public float lifeTime = 3f;
 
     private Rigidbody2D rb;
-
+    [SerializeField]
+    private AudioClip sound;
     private void Start()
     {
         Destroy(gameObject, lifeTime);
@@ -25,11 +26,13 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<Health>().TakeDamage(1);
+            AudioManager.instance.PlaySound(sound);
             Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Projectile"))
         {
-            
+            AudioManager.instance.PlaySound(sound);
+
             Destroy(gameObject);
         }
     }

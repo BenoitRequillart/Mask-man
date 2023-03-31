@@ -102,6 +102,7 @@ MonoBehaviour:
   speed: 10
   direction: {x: 0, y: 0}
   lifeTime: 3
+  sound: {fileID: 8300000, guid: 8fc9687a9863d4c90bd4674ae76ae6eb, type: 3}
 --- !u!50 &-5277130688809575865
 Rigidbody2D:
   serializedVersion: 4

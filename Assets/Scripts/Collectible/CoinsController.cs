@@ -5,6 +5,8 @@ using UnityEngine;
 public class CoinsController : MonoBehaviour
 {
     private Bag bag;
+    [SerializeField]
+    private AudioClip coinSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class CoinsController : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            AudioManager.instance.PlaySound(coinSound);
             bag = collision.GetComponent<Bag>();
             bag.setStageCoin();
             Destroy(gameObject);

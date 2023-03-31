@@ -20,7 +20,8 @@ public class PlayerMove : MonoBehaviour
     private bool isJumping;
     private float speedMemory;
 
-
+    [SerializeField]
+    private AudioClip jumpSound;
     [SerializeField]
     private VirtualJoyastickController joystick;
     [SerializeField]
@@ -72,12 +73,14 @@ public class PlayerMove : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 isGrounded = false;
                 isJumping = true;
+                AudioManager.instance.PlaySound(jumpSound);
             }
             else if (isJumping && bag.getDoubleJump())
             {
                 Debug.Log("double jump");
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 isJumping = false;
+                AudioManager.instance.PlaySound(jumpSound);
             }
         }
     }
@@ -138,16 +141,18 @@ public class PlayerMove : MonoBehaviour
         {
             if (isGrounded)
             {
-                Debug.Log("jump");
+                
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 isGrounded = false;
                 isJumping = true;
+                AudioManager.instance.PlaySound(jumpSound);
             }
             else if(isJumping && bag.getDoubleJump())
             {
-                Debug.Log("double jump");
+                
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 isJumping = false;
+                AudioManager.instance.PlaySound(jumpSound);
             }
         }
         if (Input.GetKeyUp(KeyCode.LeftArrow) && isGrounded || Input.GetKeyUp(KeyCode.RightArrow) && isGrounded)

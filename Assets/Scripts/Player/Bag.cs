@@ -10,11 +10,13 @@ public class Bag : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI coinsText;
     private int stageCoin;
+    [SerializeField]
+    private TextMeshProUGUI doubleJumpText;
 
     void Start()
     {
         asDoubleJump = false;
-        jumpText.text = "0";
+        jumpText.text = "Pas de double saut";
         stageCoin = 0;
         coinsText.text = stageCoin.ToString() + "/10";
     }
@@ -31,11 +33,14 @@ public class Bag : MonoBehaviour
 
         if (state)
         {
-            jumpText.text = "1";
+            jumpText.text = "Double Saut Dispo";
+            
+            StartCoroutine(PauseCoroutine());
+            
         }
         else
         {
-            jumpText.text = "0";
+            jumpText.text = "Pas de double saut";
         }
     }
     public bool getDoubleJump()
@@ -61,4 +66,13 @@ public class Bag : MonoBehaviour
     {
         return stageCoin;
     }
+    IEnumerator PauseCoroutine()
+    {
+        doubleJumpText.text = "Vous avez recup le double saut";
+
+        yield return new WaitForSeconds(1);
+
+        doubleJumpText.text = "";
+    }
 }
+

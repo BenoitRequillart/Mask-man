@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class JumpCollectible : MonoBehaviour
 {
     private Bag bag;
+    [SerializeField]
+    private AudioClip jumpSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +24,7 @@ public class JumpCollectible : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            AudioManager.instance.PlaySound(jumpSound);
             bag = collision.GetComponent<Bag>();
             bag.setDoubleJump(true);
             gameObject.SetActive(false);
