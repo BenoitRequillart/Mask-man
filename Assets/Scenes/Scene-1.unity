@@ -8423,6 +8423,14 @@ PrefabInstance:
       propertyPath: gameOverCanva
       value: 
       objectReference: {fileID: 671479699}
+    - target: {fileID: 2878598639288185048, guid: 143502c526edb45f89a3d166274d2525, type: 3}
+      propertyPath: stages.Array.data[0]
+      value: Scene-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878598639288185048, guid: 143502c526edb45f89a3d166274d2525, type: 3}
+      propertyPath: stages.Array.data[1]
+      value: Scene-2
+      objectReference: {fileID: 0}
     - target: {fileID: 2878598639288185049, guid: 143502c526edb45f89a3d166274d2525, type: 3}
       propertyPath: m_RootOrder
       value: 2

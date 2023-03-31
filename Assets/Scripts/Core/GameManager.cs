@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
@@ -12,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int currentStage;
     [SerializeField]
-    private List<UnityEditor.SceneAsset> stages;
+    private List<string> stages;
     [SerializeField]
     private GameObject gameCanva;
     [SerializeField]
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
         currentStage += 1;
         if (currentStage < stages.Count)
         {
-            SceneManager.LoadScene(stages[currentStage].name);
+            SceneManager.LoadScene(stages[currentStage]);
         }
         else
         {
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoadStage()
     {
-        SceneManager.LoadScene(stages[currentStage].name);
+        SceneManager.LoadScene(stages[currentStage]);
     }
 
     public void Restart()
